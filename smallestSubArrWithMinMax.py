@@ -9,17 +9,17 @@ def subArrWithMinMaxValue(nums):
 	result = []
 
 	for index in range(len(nums) - 1):
-		if identifier and nums[index] > nums[index + 1]:
+		if identifier and nums[index] >= nums[index + 1]:
 			result.append([startIndex, endIndex])
 			startIndex = index
 			identifier = 0
-		if not identifier and nums[index] < nums[index + 1]:
+		if not identifier and nums[index] <= nums[index + 1]:
 			result.append([startIndex, endIndex])
 			startIndex = index
 			identifier = 1
-		if not identifier and nums[index] > nums[index + 1]:
+		if not identifier and nums[index] >= nums[index + 1]:
 			endIndex = index + 1
-		if identifier and nums[index] < nums[index + 1]:
+		if identifier and nums[index] <= nums[index + 1]:
 			endIndex = index + 1
 
 	result.append([startIndex, endIndex])
