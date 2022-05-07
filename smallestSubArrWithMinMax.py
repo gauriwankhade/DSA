@@ -3,7 +3,7 @@ def subArrWithMinMaxValue(nums):
 		return nums
 
 	identifier = nums[0] < nums[1]
-	minInd = startIndex   = 0
+	minInd = startIndex  = 0
 	maxInd = endIndex = len(nums) - 1
 	maxDiff = 0
 	result = []
@@ -24,8 +24,9 @@ def subArrWithMinMaxValue(nums):
 
 	result.append([startIndex, endIndex])
 	for item in result:
-		if maxDiff <= abs(nums[item[0]] - nums[item[1]]) \
-				and abs(item[0] - item[1]) <= abs(maxInd - minInd):
+		if maxDiff < abs(nums[item[0]] - nums[item[1]]) or \
+				(maxDiff == abs(nums[item[0]] - nums[item[1]]) \
+				and abs(item[0] - item[1]) <= abs(maxInd - minInd)):
 			maxDiff = abs(nums[item[0]] - nums[item[1]])
 			minInd = item[0]
 			maxInd = item[1]
